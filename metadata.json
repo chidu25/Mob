@@ -1,0 +1,8 @@
+{
+  "name": "iPhone",
+  "description": "A fully interactive 3D iPhone simulation featuring a working iOS interface, Gemini-powered AI Chat, Camera, and more.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
