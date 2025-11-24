@@ -12,8 +12,27 @@ const IOSScreen: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-full bg-cover bg-center rounded-[40px] overflow-hidden relative select-none"
-         style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1695646199484-9c02d753b53a?q=80&w=1000&auto=format&fit=crop")', backgroundColor: '#000' }}>
+    <div
+      className="w-full h-full bg-cover bg-center rounded-[40px] overflow-hidden relative select-none"
+      style={{
+        backgroundImage:
+          'radial-gradient(circle at 10% 15%, rgba(98,180,255,0.35), transparent 35%), radial-gradient(circle at 85% 10%, rgba(160,255,215,0.35), transparent 40%), radial-gradient(circle at 30% 80%, rgba(255,255,255,0.1), transparent 45%), linear-gradient(135deg, #0c1322 0%, #0a0e19 45%, #0f1728 100%)',
+        backgroundColor: '#03050b',
+      }}
+    >
+
+      {/* Liquid glass flares */}
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute w-[420px] h-[420px] rounded-full bg-white/10 blur-3xl opacity-40"
+          style={{ top: '-120px', left: '-60px' }}
+        ></div>
+        <div
+          className="absolute w-[360px] h-[360px] rounded-full bg-emerald-400/20 blur-3xl opacity-30"
+          style={{ bottom: '-140px', right: '-80px' }}
+        ></div>
+        <div className="absolute inset-10 rounded-[36px] bg-white/5 backdrop-blur-3xl border border-white/10"></div>
+      </div>
       
       {/* Status Bar */}
       <div className="absolute top-0 w-full h-12 z-50 flex justify-between items-center px-6 pt-2 text-white mix-blend-difference text-xs font-medium pointer-events-none">

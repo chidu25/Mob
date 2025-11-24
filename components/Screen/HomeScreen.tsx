@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AppDefinition } from '../../types';
-import { Camera, MessageSquare, Image, Settings, Clock, Cloud, Music, Mail, Map, Calendar, Calculator, Compass, Phone, Compass as CompassIcon } from 'lucide-react';
+import { Camera, MessageSquare, Image, Settings, Clock, Cloud, Music, Mail, Map, Calendar, Calculator, Compass, Phone, Compass as CompassIcon, Gamepad2 } from 'lucide-react';
 import ChatApp from './Apps/ChatApp';
 import CameraApp from './Apps/CameraApp';
 import PhotosApp from './Apps/PhotosApp';
@@ -15,6 +15,7 @@ import CompassApp from './Apps/CompassApp';
 import ClockApp from './Apps/ClockApp';
 import PhoneApp from './Apps/PhoneApp';
 import SafariApp from './Apps/SafariApp';
+import GameApp from './Apps/GameApp';
 
 interface HomeScreenProps {
   onOpenApp: (app: AppDefinition) => void;
@@ -35,6 +36,7 @@ const apps: AppDefinition[] = [
   { id: 'calendar', name: 'Calendar', icon: <Calendar className="w-8 h-8 text-red-500" />, color: 'bg-white', component: <CalendarApp /> },
   { id: 'music', name: 'Music', icon: <Music className="w-8 h-8 text-white" />, color: 'bg-red-500', component: <MusicApp /> },
   { id: 'calculator', name: 'Calc', icon: <Calculator className="w-8 h-8 text-white" />, color: 'bg-zinc-800', component: <CalculatorApp /> },
+  { id: 'game', name: 'Arcade', icon: <Gamepad2 className="w-8 h-8 text-white" />, color: 'bg-gradient-to-br from-indigo-400 via-fuchsia-500 to-emerald-300', component: <GameApp /> },
   { id: 'compass', name: 'Compass', icon: <Compass className="w-8 h-8 text-white" />, color: 'bg-black', component: <CompassApp /> },
 ];
 

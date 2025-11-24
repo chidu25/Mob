@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import IPhone3D from './components/IPhone3D';
-import { Rotate3D, Keyboard, MousePointer2 } from 'lucide-react';
+import { Rotate3D, Keyboard, MousePointer2, Sparkles } from 'lucide-react';
 
 const App: React.FC = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -45,12 +45,18 @@ const App: React.FC = () => {
   }, [isAutoRotating]);
 
   return (
-    <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center overflow-hidden font-sans text-white">
+    <div
+      className="min-h-screen flex flex-col items-center justify-center overflow-hidden font-sans text-white"
+      style={{
+        background:
+          'radial-gradient(circle at 20% 20%, rgba(126,191,255,0.35), transparent 45%), radial-gradient(circle at 80% 0%, rgba(176,255,200,0.35), transparent 40%), linear-gradient(135deg, #0b0f17, #06080f 40%, #0a0d12)',
+      }}
+    >
       
       {/* Controls Overlay */}
       <div className="absolute top-6 left-6 z-10 bg-black/50 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl">
-        <h1 className="text-2xl font-bold mb-2 tracking-tight">iPhone</h1>
-        <p className="text-zinc-400 text-sm mb-4">A React 3D Experience</p>
+        <h1 className="text-2xl font-bold mb-2 tracking-tight">iPhone 17 Magicromatic</h1>
+        <p className="text-zinc-300 text-sm mb-4">A glassy, high-class React 3D experience</p>
         
         <div className="space-y-3 text-sm">
            <div className="flex items-center gap-3">
@@ -64,6 +70,10 @@ const App: React.FC = () => {
            <div className="flex items-center gap-3">
               <span className="w-5 h-5 flex items-center justify-center font-bold text-yellow-400 border border-yellow-400 rounded text-xs">R</span>
               <span>Press <strong>R</strong> to reset view</span>
+           </div>
+           <div className="flex items-center gap-3 text-emerald-200">
+              <Sparkles className="w-5 h-5" />
+              <span>New liquid-glass UI, fully working apps, and an Arcade mini-game</span>
            </div>
         </div>
 

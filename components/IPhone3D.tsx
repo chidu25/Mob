@@ -11,10 +11,11 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
   const height = 650;
   const depth = 50;
 
-  // Natural Titanium / Silver Colors
-  const chassisColor = '#E3E3E3'; // Matte silver glass back
-  const frameColor = '#D4D4D4'; // Brushed titanium frame
-  const cameraBumpColor = '#F2F2F2'; // Slightly lighter bump
+  // Magicromatic-inspired palette
+  const chassisColor = '#EAF1FF';
+  const backGradient = 'linear-gradient(135deg, #f4f8ff 0%, #e4f9f0 35%, #f6e9ff 70%, #e7f3ff 100%)';
+  const frameGradient = 'linear-gradient(180deg, #f8fbff 0%, #dfe9f5 50%, #e5f2ff 100%)';
+  const cameraBumpColor = '#F7F9FF'; // Slightly lighter bump
 
   const wrapperStyle: React.CSSProperties = {
     transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
@@ -41,13 +42,21 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
   );
 
   return (
-    <div className="perspective-container w-full h-full flex items-center justify-center" style={{ perspective: '1500px' }}>
+    <div className="perspective-container relative w-full h-full flex items-center justify-center" style={{ perspective: '1500px' }}>
+      <div
+        className="absolute w-[520px] h-[520px] rounded-full blur-3xl opacity-70 -z-10"
+        style={{ background: 'radial-gradient(circle at 30% 30%, rgba(132,205,255,0.35), rgba(123,255,205,0.3), transparent 60%)' }}
+      ></div>
+      <div
+        className="absolute w-[420px] h-[420px] rounded-full blur-3xl opacity-60 -z-10"
+        style={{ background: 'radial-gradient(circle at 70% 40%, rgba(255,255,255,0.18), rgba(214,185,255,0.25), transparent 65%)' }}
+      ></div>
       <div className="iphone-3d" style={wrapperStyle}>
         
         {/* FRONT FACE (Screen) */}
         <div
-          className="absolute inset-0 bg-black rounded-[50px] shadow-2xl border-[4px] border-[#D4D4D4] overflow-hidden"
-          style={{ 
+          className="absolute inset-0 bg-black rounded-[50px] shadow-2xl border-[4px] border-white/30 overflow-hidden"
+          style={{
              transform: `translateZ(${depth / 2}px)`,
              ...faceCommon,
           }}
@@ -60,9 +69,11 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
         {/* BACK FACE */}
         <div
           className="absolute inset-0 rounded-[50px] flex items-center justify-center border border-[#D4D4D4]/30"
-          style={{ 
+          style={{
              transform: `rotateY(180deg) translateZ(${depth / 2}px)`,
              backgroundColor: chassisColor,
+             backgroundImage: backGradient,
+             boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6)',
              ...faceCommon
           }}
         >
@@ -114,7 +125,7 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
             right: `-${depth/2}px`,
             transform: 'rotateY(90deg)',
             transformOrigin: 'center',
-            backgroundColor: frameColor,
+            backgroundImage: frameGradient,
             borderLeft: '1px solid rgba(255,255,255,0.4)',
             borderRight: '1px solid rgba(0,0,0,0.1)',
           }}
@@ -139,7 +150,7 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
             left: `-${depth/2}px`,
             transform: 'rotateY(-90deg)',
             transformOrigin: 'center',
-            backgroundColor: frameColor,
+            backgroundImage: frameGradient,
             borderLeft: '1px solid rgba(0,0,0,0.1)',
             borderRight: '1px solid rgba(255,255,255,0.4)',
           }}
@@ -175,7 +186,7 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
                 left: '40px',
                 transform: 'rotateX(90deg)',
                 transformOrigin: 'center',
-                backgroundColor: frameColor,
+                backgroundImage: frameGradient,
               }}
         >
              <div className="absolute left-10 w-[2px] h-full bg-gray-400/30"></div>
@@ -192,7 +203,7 @@ const IPhone3D: React.FC<IPhone3DProps> = ({ rotation }) => {
                 left: '40px',
                 transform: 'rotateX(-90deg)',
                 transformOrigin: 'center',
-                backgroundColor: frameColor,
+                backgroundImage: frameGradient,
               }}
         >
             <div className="absolute left-10 w-[2px] h-full bg-gray-400/30"></div>
